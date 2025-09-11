@@ -3,6 +3,11 @@ import { MessageLeft } from "./components/Message-left";
 import { ChatInput } from "./components/ChatInput";
 
 function App() {
+  const handleSendMessage = (text) => {
+    //Hier muss die Senden Logik hin
+    console.log("Gesendete Nachricht:", text);
+  };
+
   return (
     <>
       <div className="flex h-screen w-full">
@@ -29,7 +34,7 @@ function App() {
             <MessageLeft message="Hallo, das ist eine Nachricht von links!" />
           </div>
           {/* Input field and send button  */}
-          <ChatInput />
+          <ChatInput onSendMessage={handleSendMessage} />
         </div>
       </div>
     </>
