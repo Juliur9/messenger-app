@@ -39,8 +39,8 @@ function Messenger() {
                 </button>
               )}
               <div className="flex flex-col items-center gap-1">
-                <button>
-                  <CircleUserRound onClick={loadProfile} size={42} />
+                <button onClick={loadProfile}>
+                  <CircleUserRound  size={42} />
                 </button>
                 <p>Profil</p>
               </div>
