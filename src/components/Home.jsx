@@ -7,6 +7,7 @@ class Home extends Component {
       <>
         <h1>Hier kommt die Startseite hin</h1>
         <a href="/login">Login</a>
+        <a href="/Register">Registrieren</a>
       </>
     );
   }
