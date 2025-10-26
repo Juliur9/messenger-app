@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import { supabase } from "./lib/supabaseClient";
 
 const Register = () => {
@@ -38,7 +38,7 @@ const Register = () => {
         <label htmlFor="email">Email:</label>
         <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <label htmlFor="password">Passwort:</label>
-        <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="password" id="password" value={password} minLength={6} onChange={(e) => setPassword(e.target.value)} />
         <button className="h-14 w-full rounded-2xl bg-slate-200 p-1" type="submit">
           Registrieren
         </button>
