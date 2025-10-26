@@ -17,6 +17,10 @@ function Messenger() {
     console.log("Sidebar ist jetzt:", isSidebarOpen ? "geschlossen" : "geöffnet");
   };
 
+  const loadProfile = () => {
+    window.location= "/profile"
+  }
+
   return (
     <>
       <div className="flex h-screen w-full">
@@ -36,7 +40,7 @@ function Messenger() {
               )}
               <div className="flex flex-col items-center gap-1">
                 <button>
-                  <CircleUserRound size={42} />
+                  <CircleUserRound onClick={loadProfile} size={42} />
                 </button>
                 <p>Profil</p>
               </div>
