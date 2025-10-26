@@ -29,17 +29,17 @@ const Register = () => {
   };
 
   return (
-    <div className="register-container">
-      <h1>Hier kannst du dich registrieren</h1>
+    <div className="flex h-screen w-full flex-col items-center justify-center">
+      <h1 className="mb-8 text-3xl">Register</h1>
       <form onSubmit={handelregister}>
         <p>{status}</p>
         <label htmlFor="username">Benutzername:</label>
-        <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
+        <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="email">Email:</label>
-        <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         <label htmlFor="password">Passwort:</label>
-        <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        <button type="submit">Registrieren</button>
+        <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        <button className="h-14 w-full rounded-2xl bg-slate-200 p-1" type="submit">Registrieren</button>
       </form>
     </div>
   );
