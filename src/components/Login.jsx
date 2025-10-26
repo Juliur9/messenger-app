@@ -22,7 +22,7 @@ const Login = () => {
 
     console.log("Login erfolgreich", data);
     setStatus("✅ Erfolgreich eingeloggt!");
-    window.location = "/Home";
+    window.location = "/messenger";
   };
 
   return (

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Messenger from "./components/Messenger";
+import Home from "./components/Home";
 
 class App extends Component {
   state = {};
@@ -12,7 +13,7 @@ class App extends Component {
           <Routes>
             <Route path="/messenger" element={<Messenger />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Messenger />} /> //nur temporär
+            <Route path="/" element={<Home />} /> 
           </Routes>
         </div>
       </Router>
