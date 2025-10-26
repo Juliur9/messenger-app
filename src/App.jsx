@@ -1,18 +1,20 @@
-import { useState, useEffect } from "react";
-import LoginRegister from "./components/LoginRegister.jsx";
-import Messenger from "./components/Messenger.jsx";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
 
-function App() {
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      setUser(JSON.parse(storedUser));
-    }
-  }, []);
-
-  return user ? <Messenger user={user} /> : <LoginRegister onLoginSuccess={setUser} />;
+class App extends Component {
+  state = {  } 
+  render() { 
+    return (
+      <Router>
+      <div className='routes'>
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+        </Routes>
+        </div>
+      </Router>
+    );
+  }
 }
-
+ 
 export default App;
