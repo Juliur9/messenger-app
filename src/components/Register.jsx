@@ -14,7 +14,7 @@ const Register = () => {
       email,
       password,
       options: {
-        data: { display_name }, //Metadata Anzeigename
+        data: { display_name: username }, //Metadata Anzeigename
       },
     });
 
@@ -37,7 +37,7 @@ const Register = () => {
         <input type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
         <label htmlFor="email">Email:</label>
         <input type="email" id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        <label htmlFor="passowrd">Passwort:</label>
+        <label htmlFor="password">Passwort:</label>
         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <button type="submit">Registrieren</button>
       </form>
