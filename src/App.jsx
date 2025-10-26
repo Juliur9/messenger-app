@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Messenger from "./components/Messenger";
 import Home from "./components/Home";
+import Register from "./components/Register";
 
 class App extends Component {
   state = {};
@@ -13,7 +14,8 @@ class App extends Component {
           <Routes>
             <Route path="/messenger" element={<Messenger />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} /> 
+            <Route path="/" element={<Home />} />
+            <Route path="/register" element={<Register />} />
           </Routes>
         </div>
       </Router>
