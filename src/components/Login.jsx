@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { supabase } from "./lib/supabaseClient.js";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -9,16 +8,10 @@ const Login = () => {
   const handlelogin = async (e) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.auth.signInWithPassword({
+    const data = {
       email,
       password,
-    });
-
-    if (error) {
-      console.error("Login-Fehler", error);
-      setStatus("❌ " + error.message);
-      return;
-    }
+    };
 
     console.log("Login erfolgreich", data);
     setStatus("✅ Erfolgreich eingeloggt!");

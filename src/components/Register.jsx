@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { supabase } from "./lib/supabaseClient";
 
 const Register = () => {
   const [username, setUsername] = useState("");
@@ -10,22 +9,13 @@ const Register = () => {
   const handelregister = async (e) => {
     e.preventDefault();
 
-    const { data, error } = await supabase.auth.signUp({
+    const data = {
       email,
       password,
       options: {
         data: { display_name: username }, //Metadata Anzeigename
       },
-    });
-
-    if (error) {
-      console.error("Register-Fehler", error);
-      setStatus("❌ " + error.message);
-      return;
-    }
-    console.log("Register erfolgreich", data);
-    setStatus("✅ Erfolgreich Registriert!");
-    window.location = "/login";
+    };
   };
 
   return (
