@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const Register = () => {
@@ -6,22 +7,31 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [status, setStatus] = useState("");
 
-  const handelregister = async (e) => {
+  const handleregister = async (e) => {
     e.preventDefault();
 
     const data = {
+      username,
       email,
       password,
-      options: {
-        data: { display_name: username }, //Metadata Anzeigename
-      },
     };
+
+    axios
+      .post("https://messengerapp-backend.onrender.com/api/auth/register", data)
+      .then(function () {
+        setStatus("✅ Registrierung erfolgreich!");
+        window.location = "/login";
+      })
+      .catch(function (error) {
+        setStatus("❌ Registrierung fehlgeschlagen!");
+        console.log(error);
+      });
   };
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center">
       <h1 className="mb-8 text-3xl">Register</h1>
-      <form className="flex w-80 flex-col" onSubmit={handelregister}>
+      <form className="flex w-80 flex-col" onSubmit={handleregister}>
         <p>{status}</p>
         <label htmlFor="username">Benutzername:</label>
         <input className="mb-4 mt-1 h-14 w-full rounded-2xl bg-slate-100 p-2" type="text" id="username" value={username} onChange={(e) => setUsername(e.target.value)} />
