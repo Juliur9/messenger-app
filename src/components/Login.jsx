@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 
 const Login = () => {
@@ -13,9 +14,16 @@ const Login = () => {
       password,
     };
 
-    console.log("Login erfolgreich", data);
-    setStatus("✅ Erfolgreich eingeloggt!");
-    window.location = "/messenger";
+    axios
+      .post("https://messengerapp-backend.onrender.com/api/auth/login", data)
+      .then(function () {
+        setStatus("✅ Login erfolgreich!");
+        window.location = "/messenger";
+      })
+      .catch(function (error) {
+        setStatus("❌ Login fehlgeschlagen!");
+        console.log(error);
+      });
   };
 
   return (
