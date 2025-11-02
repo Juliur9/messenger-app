@@ -5,6 +5,8 @@ import { useState } from "react";
 function Profile() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [statusUsername, setStatusUsername] = useState("");
+  const [statusPassword, setStatusPassword] = useState("");
 
   const changeUsername = async (e) => {
     e.preventDefault();
@@ -13,9 +15,12 @@ function Profile() {
       .put("https://messengerapp-backend.onrender.com/api/auth/email/change", { email: email }, { withCredentials: true })
       .then(function () {
         console.log("E-Mail geändert");
+        setStatusUsername("✅ E-Mail geändert");
+        window.location = "/login";
       })
       .catch(function (error) {
         console.log(error);
+        setStatusPassword("❌ Fehlgeschlagen");
       });
   };
 
@@ -26,9 +31,12 @@ function Profile() {
       .put("https://messengerapp-backend.onrender.com/api/auth/password/change", { password: password }, { withCredentials: true })
       .then(function () {
         console.log("Passwort geändert");
+        setStatusPassword("✅ Passwort geändert");
+        window.location = "/login";
       })
       .catch(function (error) {
         console.log(error);
+        setStatusPassword("❌ Fehlgeschlagen");
       });
   };
 
@@ -41,6 +49,7 @@ function Profile() {
         <div className="flex h-screen w-11/12 items-center justify-center">
           <div className="flex w-80 flex-col">
             <form>
+              <p>{statusUsername}</p>
               <label htmlFor="email">E-Mail:</label>
               <input className="m-1 mb-1 h-14 w-full rounded-2xl bg-slate-100 p-2" id="email" type="email" placeholder="Neue E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
 
@@ -49,6 +58,7 @@ function Profile() {
               </button>
             </form>
             <form>
+              <p>{statusPassword}</p>
               <label htmlFor="password">Passwort: </label>
               <input className="m-1 mb-1 h-14 w-full rounded-2xl bg-slate-100 p-2" id="password" type="password" placeholder="Neues Passwort" value={password} onChange={(e) => setPassword(e.target.value)} />
 
