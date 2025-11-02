@@ -10,7 +10,7 @@ function Profile() {
     e.preventDefault();
 
     axios
-      .put("https://messengerapp-backend.onrender.com/api/auth/email/change", { email: email })
+      .put("https://messengerapp-backend.onrender.com/api/auth/email/change", { email: email }, { withCredentials: true })
       .then(function () {
         console.log("E-Mail geändert");
       })
@@ -23,7 +23,7 @@ function Profile() {
     e.preventDefault();
 
     axios
-      .put("https://messengerapp-backend.onrender.com/api/auth/password/change", { password: password })
+      .put("https://messengerapp-backend.onrender.com/api/auth/password/change", { password: password }, { withCredentials: true })
       .then(function () {
         console.log("Passwort geändert");
       })
