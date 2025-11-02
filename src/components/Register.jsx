@@ -17,7 +17,7 @@ const Register = () => {
     };
 
     axios
-      .post("https://messengerapp-backend.onrender.com/api/auth/register", data)
+      .post("https://messengerapp-backend.onrender.com/api/auth/register", data, { withCredentials: true })
       .then(function () {
         setStatus("✅ Registrierung erfolgreich!");
         window.location = "/login";

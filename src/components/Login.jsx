@@ -15,7 +15,7 @@ const Login = () => {
     };
 
     axios
-      .post("https://messengerapp-backend.onrender.com/api/auth/login", data)
+      .post("https://messengerapp-backend.onrender.com/api/auth/login", data, { withCredentials: true })
       .then(function () {
         setStatus("✅ Login erfolgreich!");
         window.location = "/messenger";
