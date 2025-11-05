@@ -1,8 +1,11 @@
 import axios from "axios";
 import { Undo2 } from "lucide-react";
 import { useState } from "react";
+import { useAuthCheck } from "./hooks/authCheck";
 
 function Profile() {
+  useAuthCheck();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");

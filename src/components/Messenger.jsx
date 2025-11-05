@@ -3,8 +3,11 @@ import { MessageLeft } from "./Message-left";
 import { ChatInput } from "./ChatInput";
 import { ArrowLeftToLine, ArrowRightToLine, CircleUserRound } from "lucide-react";
 import { useState } from "react";
+import { useAuthCheck } from "./hooks/authCheck";
 
 function Messenger() {
+  useAuthCheck();
+
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSendMessage = (text) => {
@@ -18,8 +21,8 @@ function Messenger() {
   };
 
   const loadProfile = () => {
-    window.location= "/profile"
-  }
+    window.location = "/profile";
+  };
 
   return (
     <>
@@ -40,7 +43,7 @@ function Messenger() {
               )}
               <div className="flex flex-col items-center gap-1">
                 <button onClick={loadProfile}>
-                  <CircleUserRound  size={42} />
+                  <CircleUserRound size={42} />
                 </button>
                 <p>Profil</p>
               </div>
