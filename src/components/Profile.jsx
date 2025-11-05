@@ -41,23 +41,6 @@ function Profile() {
   const deleteAccount = async (e) => {
     e.preventDefault();
 
-<<<<<<< HEAD
-    axios
-      .delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true })
-      .then(function () {
-        console.log("Account gelöscht");
-        setStatusDelete("✅ Account gelöscht");
-        window.location = "/";
-      })
-      .catch(function (error) {
-        console.log(error);
-        if (error.response && error.response.status === 403) {
-          setStatusDelete("❌ Falsches Passwort");
-          return;
-        }
-        setStatusDelete("❌ Fehlgeschlagen");
-      });
-=======
     try {
       await axios.delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true });
       console.log("Account gelöscht");
@@ -71,7 +54,6 @@ function Profile() {
       }
       setStatusDelete("❌ Fehlgeschlagen");
     }
->>>>>>> f24310ce5b924c9b7907054f5cb3649196573a20
   };
 
   return (
