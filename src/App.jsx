@@ -5,6 +5,7 @@ import Messenger from "./components/Messenger";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Profile from "./components/Profile";
+import UserList from "./components/Users";
 
 class App extends Component {
   state = {};
@@ -13,6 +14,7 @@ class App extends Component {
       <Router>
         <div className="routes">
           <Routes>
+            <Route path="/user" element={ <UserList />} />
             <Route path="/messenger" element={<Messenger />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />

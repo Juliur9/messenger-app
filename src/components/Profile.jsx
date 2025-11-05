@@ -46,7 +46,7 @@ function Profile() {
     e.preventDefault();
 
     axios
-      .delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { password }, withCredentials: true })
+      .delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true })
       .then(function () {
         console.log("Account gelöscht");
         setStatusDelete("✅ Account gelöscht");
