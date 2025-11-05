@@ -14,16 +14,14 @@ const Login = () => {
       password,
     };
 
-    axios
-      .post("https://messengerapp-backend.onrender.com/api/auth/login", data, { withCredentials: true })
-      .then(function () {
-        setStatus("✅ Login erfolgreich!");
-        window.location = "/messenger";
-      })
-      .catch(function (error) {
-        setStatus("❌ Login fehlgeschlagen!");
-        console.log(error);
-      });
+    try {
+      await axios.post("https://messengerapp-backend.onrender.com/api/auth/login", data, { withCredentials: true });
+      setStatus("✅ Login erfolgreich!");
+      window.location = "/messenger";
+    } catch (error) {
+      setStatus("❌ Login fehlgeschlagen!");
+      console.log(error);
+    }
   };
 
   return (

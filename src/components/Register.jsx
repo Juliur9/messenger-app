@@ -16,16 +16,14 @@ const Register = () => {
       password,
     };
 
-    axios
-      .post("https://messengerapp-backend.onrender.com/api/auth/register", data, { withCredentials: true })
-      .then(function () {
-        setStatus("✅ Registrierung erfolgreich!");
-        window.location = "/login";
-      })
-      .catch(function (error) {
-        setStatus("❌ Registrierung fehlgeschlagen!");
-        console.log(error);
-      });
+    try {
+      await axios.post("https://messengerapp-backend.onrender.com/api/auth/register", data, { withCredentials: true });
+      setStatus("✅ Registrierung erfolgreich!");
+      window.location = "/login";
+    } catch (error) {
+      setStatus("❌ Registrierung fehlgeschlagen!");
+      console.log(error);
+    }
   };
 
   return (
