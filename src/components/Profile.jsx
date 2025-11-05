@@ -6,21 +6,21 @@ function Profile() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [statusUsername, setStatusUsername] = useState("");
+  const [statusEmail, setStatusEmail] = useState("");
   const [statusPassword, setStatusPassword] = useState("");
   const [statusDelete, setStatusDelete] = useState("");
 
-  const changeUsername = async (e) => {
+  const changeEmail = async (e) => {
     e.preventDefault();
 
     try {
       await axios.put("https://messengerapp-backend.onrender.com/api/auth/email/change", { data: { email }, withCredentials: true });
       console.log("E-Mail geändert");
-      setStatusUsername("✅ E-Mail geändert");
+      setStatusEmail("✅ E-Mail geändert");
       window.location = "/login";
     } catch (error) {
       console.log(error);
-      setStatusUsername("❌ Fehlgeschlagen");
+      setStatusEmail("❌ Fehlgeschlagen");
     }
   };
 
@@ -66,11 +66,11 @@ function Profile() {
           <div className="flex w-80 flex-col">
             <h3 className="mb-2 mt-5 text-lg">Persöhnliche Daten ändern</h3>
             <form>
-              <p>{statusUsername}</p>
+              <p>{statusEmail}</p>
               <label htmlFor="email">Neue E-Mail:</label>
               <input className="m-1 mb-1 h-14 w-full rounded-2xl bg-slate-100 p-2" id="email" type="email" placeholder="Neue E-Mail" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-              <button className="m-1 mb-5 h-14 w-full rounded-2xl bg-slate-200 p-1" type="submit" onClick={changeUsername}>
+              <button className="m-1 mb-5 h-14 w-full rounded-2xl bg-slate-200 p-1" type="submit" onClick={changeEmail}>
                 E-Mail ändern
               </button>
             </form>
