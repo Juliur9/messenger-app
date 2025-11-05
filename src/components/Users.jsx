@@ -9,7 +9,7 @@ const UserList = () => {
 useEffect(() => {
     const fetchUsers = async () => {
         try{
-            res = await axios.get("https://messengerapp-backend.onrender.com/api/auth/user", { withCredentials: true }) //Das muss noch rein
+           const res = await axios.get("https://messengerapp-backend.onrender.com/api/auth/user", { withCredentials: true }) //Das muss noch rein
             setUsers(res.data);
         } catch (err) {
             setError('Fehler beim Laden der Daten')
