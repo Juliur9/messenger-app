@@ -13,53 +13,47 @@ function Profile() {
   const changeUsername = async (e) => {
     e.preventDefault();
 
-    axios
-      .put("https://messengerapp-backend.onrender.com/api/auth/email/change", { data: { email }, withCredentials: true })
-      .then(function () {
-        console.log("E-Mail geändert");
-        setStatusUsername("✅ E-Mail geändert");
-        window.location = "/login";
-      })
-      .catch(function (error) {
-        console.log(error);
-        setStatusUsername("❌ Fehlgeschlagen");
-      });
+    try {
+      await axios.put("https://messengerapp-backend.onrender.com/api/auth/email/change", { data: { email }, withCredentials: true });
+      console.log("E-Mail geändert");
+      setStatusUsername("✅ E-Mail geändert");
+      window.location = "/login";
+    } catch (error) {
+      console.log(error);
+      setStatusUsername("❌ Fehlgeschlagen");
+    }
   };
 
   const changePassword = async (e) => {
     e.preventDefault();
 
-    axios
-      .put("https://messengerapp-backend.onrender.com/api/auth/password/change", { data: { password }, withCredentials: true })
-      .then(function () {
-        console.log("Passwort geändert");
-        setStatusPassword("✅ Passwort geändert");
-        window.location = "/login";
-      })
-      .catch(function (error) {
-        console.log(error);
-        setStatusPassword("❌ Fehlgeschlagen");
-      });
+    try {
+      await axios.put("https://messengerapp-backend.onrender.com/api/auth/password/change", { data: { password }, withCredentials: true });
+      console.log("Passwort geändert");
+      setStatusPassword("✅ Passwort geändert");
+      window.location = "/login";
+    } catch (error) {
+      console.log(error);
+      setStatusPassword("❌ Fehlgeschlagen");
+    }
   };
 
   const deleteAccount = async (e) => {
     e.preventDefault();
 
-    axios
-      .delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true })
-      .then(function () {
-        console.log("Account gelöscht");
-        setStatusDelete("✅ Account gelöscht");
-        window.location = "/";
-      })
-      .catch(function (error) {
-        console.log(error);
-        if (error.response && error.response.status === 403) {
-          setStatusDelete("❌ Falsches Passwort");
-          return;
-        }
-        setStatusDelete("❌ Fehlgeschlagen");
-      });
+    try {
+      await axios.delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true });
+      console.log("Account gelöscht");
+      setStatusDelete("✅ Account gelöscht");
+      window.location = "/";
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.status === 403) {
+        setStatusDelete("❌ Falsches Passwort");
+        return;
+      }
+      setStatusDelete("❌ Fehlgeschlagen");
+    }
   };
 
   return (
