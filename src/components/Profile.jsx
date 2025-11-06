@@ -31,7 +31,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.put("https://messengerapp-backend.onrender.com/api/account/password", { password }, { withCredentials: true } );
+      await axios.put("https://messengerapp-backend.onrender.com/api/account/password", { data: { password }, withCredentials: true });
       console.log("Passwort geändert");
       setStatusPassword("✅ Passwort geändert");
       window.location = "/login";
