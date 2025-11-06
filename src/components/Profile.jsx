@@ -17,7 +17,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.put("https://messengerapp-backend.onrender.com/api/auth/email/change", { data: { email }, withCredentials: true });
+      await axios.put("https://messengerapp-backend.onrender.com/api/account/email", { data: { email }, withCredentials: true });
       console.log("E-Mail geändert");
       setStatusEmail("✅ E-Mail geändert");
       window.location = "/login";
@@ -31,7 +31,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.put("https://messengerapp-backend.onrender.com/api/auth/password/change", { data: { password }, withCredentials: true });
+      await axios.put("https://messengerapp-backend.onrender.com/api/account/password", { data: { password }, withCredentials: true });
       console.log("Passwort geändert");
       setStatusPassword("✅ Passwort geändert");
       window.location = "/login";
@@ -45,7 +45,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.delete("https://messengerapp-backend.onrender.com/api/auth/delete/user", { data: { passwordConfirm }, withCredentials: true });
+      await axios.delete("https://messengerapp-backend.onrender.com/api/account/delete", { data: { passwordConfirm }, withCredentials: true });
       console.log("Account gelöscht");
       setStatusDelete("✅ Account gelöscht");
       window.location = "/";
