@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Undo2 } from "lucide-react";
+import { LogOut, Undo2 } from "lucide-react";
 import { useState } from "react";
 import { useAuthCheck } from "./hooks/authCheck";
 
@@ -59,13 +59,22 @@ function Profile() {
     }
   };
 
+  const logout = async () => {
+    try {
+      const response = await axios.delete("https://messengerapp-backend.onrender.com/api/auth/logout", { withCredentials: true });
+      console.log(response.data.message);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <>
       <div className="flex items-start">
-        <button onClick={() => (window.location = "/messenger")}>
+        <button onClick={() => (window.location = "/messenger")} title="Zurück zum Messenger">
           <Undo2 className="m-4 h-16 w-16 p-2" />
         </button>
-        <div className="flex h-screen w-11/12 items-center justify-center">
+        <div className="flex h-screen w-full items-center justify-center">
           <div className="flex w-80 flex-col">
             <h3 className="mb-2 mt-5 text-lg">Persöhnliche Daten ändern</h3>
             <form>
@@ -97,6 +106,9 @@ function Profile() {
             </form>
           </div>
         </div>
+        <button onClick={logout} title="Ausloggen">
+          <LogOut className="m-4 h-16 w-16 p-2" />
+        </button>
       </div>
     </>
   );
