@@ -17,7 +17,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.put("https://messengerapp-backend.onrender.com/api/account/email", { data: { email }, withCredentials: true });
+      await axios.put("https://messengerapp-backend.onrender.com/api/account/email", { email }, { withCredentials: true } );
       console.log("E-Mail geändert");
       setStatusEmail("✅ E-Mail geändert");
       window.location = "/login";
