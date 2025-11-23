@@ -1,14 +1,16 @@
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 
-export function useAuthCheck() {
+export default function ProtectedRoute({ children }) {
+  const [isAuthenticated, setIsAuthenticated] = useState(null);
+
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const response = await axios.get("https://messengerapp-backend.onrender.com/api/auth/auth", { withCredentials: true });
 
-        if (response.status == 200) {
-          console.log("User ist eingeloggt");
+        if (response.status === 200) {
+          setIsAuthenticated(true);
         }
       } catch (error) {
         if (error.response && error.response.status === 401) {
@@ -16,10 +18,16 @@ export function useAuthCheck() {
         } else {
           console.log("Fehler bei der Authentifizierungsprüfung:", error);
         }
+        setIsAuthenticated(false);
         window.location = "/login";
       }
     };
 
     checkAuth();
   }, []);
+
+  if (isAuthenticated === null) return <div>Loading...</div>;
+  if (!isAuthenticated) return null;
+
+  return children;
 }

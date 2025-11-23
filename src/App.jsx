@@ -7,6 +7,8 @@ import Register from "./components/Register";
 import Profile from "./components/Profile";
 import UserList from "./components/Users";
 
+import ProtectedRoute from "./components/ProtectedRoute";
+
 class App extends Component {
   state = {};
   render() {
@@ -14,12 +16,28 @@ class App extends Component {
       <Router>
         <div className="routes">
           <Routes>
-            <Route path="/user" element={ <UserList />} />
-            <Route path="/messenger" element={<Messenger />} />
+            <Route path="/user" element={<UserList />} />
             <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
+
+            {/*Protected Routes*/}
+            <Route
+              path="/messenger"
+              element={
+                <ProtectedRoute>
+                  <Messenger />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
           </Routes>
         </div>
       </Router>

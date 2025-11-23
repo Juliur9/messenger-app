@@ -3,11 +3,8 @@ import { MessageLeft } from "./Message-left";
 import { ChatInput } from "./ChatInput";
 import { ArrowLeftToLine, ArrowRightToLine, CircleUserRound } from "lucide-react";
 import { useState } from "react";
-import { useAuthCheck } from "./hooks/authCheck";
 
 function Messenger() {
-  useAuthCheck();
-
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   const handleSendMessage = (text) => {

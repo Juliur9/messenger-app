@@ -1,11 +1,8 @@
 import axios from "axios";
 import { LogOut, Undo2 } from "lucide-react";
 import { useState } from "react";
-import { useAuthCheck } from "./hooks/authCheck";
 
 function Profile() {
-  useAuthCheck();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -17,7 +14,7 @@ function Profile() {
     e.preventDefault();
 
     try {
-      await axios.put("https://messengerapp-backend.onrender.com/api/account/email", { email }, { withCredentials: true } );
+      await axios.put("https://messengerapp-backend.onrender.com/api/account/email", { email }, { withCredentials: true });
       console.log("E-Mail geändert");
       setStatusEmail("✅ E-Mail geändert");
       window.location = "/login";
