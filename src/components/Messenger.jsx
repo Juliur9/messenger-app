@@ -25,7 +25,7 @@ function Messenger() {
     <>
       <div className={`grid h-screen transition-all duration-300 ${isSidebarOpen ? "grid-cols-[16rem_1fr]" : "grid-cols-[4rem_1fr]"} `}>
         {/* Sidebar */}
-        <div className="h-full overflow-hidden bg-slate-400">
+        <div className="bg-navy-700 h-full overflow-hidden">
           <div className="flex h-full p-1 transition-all duration-300">
             {/* Linke Icon-Spalte */}
             <div className={`flex h-full flex-col justify-between p-3 transition-all duration-300 ${isSidebarOpen ? "w-16 items-start" : "w-full items-center"} `}>
@@ -37,19 +37,19 @@ function Messenger() {
               {/* Profil */}
               <div className="flex flex-col items-center gap-1">
                 <button onClick={loadProfile}>
-                  <CircleUserRound size={42} />
+                  <CircleUserRound color="white" size={42} />
                 </button>
               </div>
             </div>
 
-            {isSidebarOpen && <div className="flex-1 overflow-y-auto rounded-lg bg-blue-900 p-10">{/* Kontakte kommen hier rein */}</div>}
+            {isSidebarOpen && <div className="bg-navy-900 flex-1 overflow-y-auto rounded-lg p-10">{/* Kontakte*/}</div>}
           </div>
         </div>
         {/* Main chat area */}
-        <div id="chat-div" className="flex h-full flex-col bg-green-300">
+        <div id="chat-div" className="bg-navy-500 flex h-full flex-col">
           {/* Header */}
-          <div id="chat-header" className="flex h-16 items-center justify-start bg-green-200 shadow-md">
-            <p className="p-3">Name</p>
+          <div id="chat-header" className="bg-navy-900 flex h-16 items-center justify-start shadow-md">
+            <p className="p-3 text-white">Name</p>
             <img src="https://avatars.githubusercontent.com/u/141222358?v=4" className="h-12 w-12 rounded-full" alt="avatar" />
           </div>
           {/* Messages */}
