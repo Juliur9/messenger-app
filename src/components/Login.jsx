@@ -1,5 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
+import PublicNavbar from "./publicNavbar";
+import Snow from "./Snow";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -25,8 +27,11 @@ const Login = () => {
   };
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-center">
-      <h1 className="mb-8 text-3xl">Login</h1>
+    <>
+    <PublicNavbar />
+    <div className="flex m-40 flex-col items-center justify-center">
+      <Snow />
+      <h1 className="mb-8 text-3xl bg-gradient-to-r from-green-500 via-blue-500 to-purple-500 bg-clip-text text-3xl font-bold text-transparent">Login</h1>
 
       <form className="flex w-80 flex-col" onSubmit={handlelogin}>
         <p>{status}</p>
@@ -42,6 +47,7 @@ const Login = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 
